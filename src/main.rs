@@ -6,6 +6,6 @@ use board::*;
 use st::*;
 
 fn main() {
-    let glider = Board::from(GLIDER.to_vec());
-    glider.life();
+    let glider_gun = Board::from(GLIDER_GUN.to_vec());
+    glider_gun.life();
 }
