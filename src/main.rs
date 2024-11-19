@@ -6,6 +6,6 @@ use board::*;
 use st::*;
 
 fn main() {
-    let glider_gun = Board::from(GLIDER_GUN.to_vec());
-    glider_gun.life();
+    let mut acorn = Board::from(ACORN.to_vec());
+    println!("{:?}", acorn.life());
 }

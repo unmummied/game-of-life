@@ -59,14 +59,21 @@ impl Board {
         s
     }
 
-    #[allow(unconditional_recursion)]
-    pub fn life(&self) {
-        println!("{self}");
-        std::thread::sleep(SLEEPING);
-        Board {
-            cells: self.next_gen(),
+    pub fn life(&mut self) {
+        let mut gen = 0;
+
+        loop {
+            println!("{self}");
+
+            print!("\x1b[{};0H", HEIGHT + 1);
+            println!("      gen: {gen:>4}");
+            println!("survivors: {:>4}", self.survivors().len());
+            gen += 1;
+
+            std::thread::sleep(SLEEPING);
+
+            self.cells = self.next_gen();
         }
-        .life();
     }
 }
 
